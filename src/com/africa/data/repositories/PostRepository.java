@@ -1,6 +1,6 @@
-package data.repositories;
+package com.africa.data.repositories;
 
-import data.models.Post;
+import com.africa.data.models.Post;
 
 import java.util.List;
 

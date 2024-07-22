@@ -1,6 +1,8 @@
 package data.repositories;
 
-import data.models.Post;
+import com.africa.data.models.Post;
+import com.africa.data.repositories.MyRepository;
+import com.africa.data.repositories.PostRepository;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,25 +13,21 @@ class MyRepositoryTest {
     @Test
     void testThatUserIdCanBeAdded() {
         Post post = new Post();
-        post.setTitle("Test Post");
-        post.setId(1);
-        post.setContent("Test Content");
         postRepository.save(post);
-        assertEquals(1, postRepository.findById(1));
+        assertEquals(1, postRepository.count());
     }
 
     @Test
     void testThatUserIdCanBeRemoved() {
         Post post = new Post();
-        post.setTitle("Test Post");
-        post.setId(1);
-        post.setContent("Argentina wins the Copa America");
+        postRepository.save(post);
         postRepository.deleteById(2);
-        assertEquals(2, postRepository.findById(2));
+        assertEquals(1, postRepository.count());
     }
 
     @Test
-    void findAll() {
+    void testThatFindAllUserIdInTheRepository() {
+        Post post = new Post();
     }
 
     @Test

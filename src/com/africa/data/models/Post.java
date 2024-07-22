@@ -1,4 +1,4 @@
-package data.models;
+package com.africa.data.models;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,12 +12,42 @@ public class Post {
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt;
 
+
+    public Post() {
+    }
+
     public void addComment() {
         Comment checkAm = new Comment();
         checkAm.setId(id);
         checkAm.setContent(content);
         checkAm.setCreatedAt(createdAt);
         comments.add(checkAm);
+    }
+
+    public void removeContent(String content) {
+        for (int count = 0; count < comments.size(); count++) {
+            if (comments.get(count).getContent().equals(content)) {
+                comments.remove(count);
+            }
+        }
+
+    }
+
+    public void removeComment(int id) {
+        for (int count = 0; count < comments.size(); count++) {
+            if (comments.get(count).getId() == id) {
+                comments.remove(count);
+            }
+        }
+    }
+
+    public Comment updateComment(int id, String comment) {
+        for (int count = 0; count < comments.size(); count++) {
+            if (comments.get(count).getId() == id) {
+                comments.add(1, comments.get(count));
+            }
+        }
+        return null;
     }
 
     public int getId() {
@@ -69,11 +99,4 @@ public class Post {
     }
 
 
-    public void removeContent(String content) {
-        for (Comment comment : comments) {
-            if (comment.getContent().equals(content)) {
-                comments.remove(comment);
-            }
-        }
-    }
 }

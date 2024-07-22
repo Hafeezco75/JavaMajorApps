@@ -1,4 +1,4 @@
-package data.models;
+package com.africa.data.models;
 
 import java.time.LocalDateTime;
 
